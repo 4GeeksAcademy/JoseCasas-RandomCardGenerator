@@ -22,7 +22,10 @@ window.onload = () => {
     "Q",
     "K"
   ];
-  const cardElement = document.querySelecto;
+  // const cardElement = document.querySelector(".card");
+  const cardInner = document.querySelector(".cardInner");
+  const flipButton = document.querySelector("#flipButton");
+
   function getRandomCard() {
     const randomSuits = Math.floor(Math.random() * suits.length);
     const randomNumbers = Math.floor(Math.random() * numbers.length);
@@ -40,7 +43,21 @@ window.onload = () => {
       });
   }
 
-  getRandomCard();
+  flipButton.addEventListener("click", () => {
+    if (cardInner.classList.contains("flip")) {
+      cardInner.classList.remove("flip");
+      setTimeout(() => {
+        cardInner.style.visibility = "hidden";
+        getRandomCard();
+      }, 500);
+    } else {
+      getRandomCard();
+      cardInner.style.visibility = "visible";
+      cardInner.classList.add("flip");
+    }
+  });
 
-  document.querySelector("button").addEventListener("click", getRandomCard);
+  // getRandomCard();
+
+  // document.querySelector("button").addEventListener("click", getRandomCard);
 };
