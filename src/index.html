@@ -15,11 +15,17 @@
   <body>
     <div class="container-fluid">
       <div class="card">
-        <span class="top-suit"></span>
-        <span class="number"></span>
-        <span class="bottom-suit"></span>
+        <div class="cardInner">
+          <div class="frontCard">
+            <span class="top-suit"></span>
+            <span class="number"></span>
+            <span class="bottom-suit"></span>
+          </div>
+          <div class="backCard">Card Back</div>
+        </div>
       </div>
-      <button>Get another card</button>
+      <!-- <button>Get another card</button> -->
+      <button id="flipButton">Flip Button</button>
     </div>
     <script src="app.js"></script>
   </body>

@@ -22,7 +22,7 @@ window.onload = () => {
     "Q",
     "K"
   ];
-
+  const cardElement = document.querySelecto;
   function getRandomCard() {
     const randomSuits = Math.floor(Math.random() * suits.length);
     const randomNumbers = Math.floor(Math.random() * numbers.length);
@@ -43,6 +43,4 @@ window.onload = () => {
   getRandomCard();
 
   document.querySelector("button").addEventListener("click", getRandomCard);
-
-  console.log("Thanks for checking out my random card generator page!");
 };
