@@ -1,12 +1,11 @@
 /* eslint-disable */
 import "bootstrap";
 import "./style.css";
-
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
 window.onload = () => {
-  const suits = ["&spades;", "&hearts;", "&clubs;", "&diams;"];
+  const suits = ["🦍", "🔥", "🕷️", "🐦‍🔥"];
   const numbers = [
     "A",
     "2",
@@ -22,10 +21,11 @@ window.onload = () => {
     "Q",
     "K"
   ];
-  // const cardElement = document.querySelector(".card");
-  const cardInner = document.querySelector(".cardInner");
-  const flipButton = document.querySelector("#flipButton");
 
+  const cardInner = document.querySelector(".cardInner");
+  const getCardButton = document.querySelector("#getCardButton");
+
+  // Función para generar una carta nueva
   function getRandomCard() {
     const randomSuits = Math.floor(Math.random() * suits.length);
     const randomNumbers = Math.floor(Math.random() * numbers.length);
@@ -34,8 +34,7 @@ window.onload = () => {
     document.querySelector(".bottom-suit").innerHTML = suits[randomSuits];
     document.querySelector(".number").innerHTML = numbers[randomNumbers];
 
-    const isRed =
-      suits[randomSuits] === "&hearts;" || suits[randomSuits] === "&diams;";
+    const isRed = suits[randomSuits] === "🔥" || suits[randomSuits] === "🐦‍🔥";
     document
       .querySelectorAll(".top-suit, .bottom-suit, .number")
       .forEach(element => {
@@ -43,21 +42,21 @@ window.onload = () => {
       });
   }
 
-  flipButton.addEventListener("click", () => {
-    if (cardInner.classList.contains("flip")) {
-      cardInner.classList.remove("flip");
-      setTimeout(() => {
-        cardInner.style.visibility = "hidden";
-        getRandomCard();
-      }, 500);
-    } else {
+  // Evento de clic para generar una nueva carta
+  if (getCardButton) {
+    getCardButton.addEventListener("click", () => {
       getRandomCard();
-      cardInner.style.visibility = "visible";
-      cardInner.classList.add("flip");
-    }
-  });
+    });
+  } else {
+    console.error("No se encontró el botón con el id 'getCardButton'");
+  }
 
-  // getRandomCard();
-
-  // document.querySelector("button").addEventListener("click", getRandomCard);
+  // Evento de clic para voltear la carta
+  if (cardInner) {
+    cardInner.addEventListener("click", () => {
+      cardInner.classList.toggle("flip");
+    });
+  } else {
+    console.error("No se encontró el elemento con la clase 'cardInner'");
+  }
 };

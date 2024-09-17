@@ -2,10 +2,10 @@
 
 html,
 body {
-  background-color: darkgreen;
+  background-image: url("https://img.freepik.com/premium-vector/poker-table-background-green-color_47243-1073.jpg");
+  background-size: cover;
   height: 100%;
   margin: 0;
-  box-sizing: border-box;
 }
 
 .container-fluid {
@@ -23,8 +23,6 @@ body {
   box-sizing: border-box;
   margin: 0 auto;
   margin-top: 3.5rem;
-  /* padding-left: 20px;
-  padding-right: 20px; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,7 +54,7 @@ button {
   height: 30px;
   margin: 2.5rem auto 0 auto;
   border-radius: 20px;
-  background-color: orangered;
+  background-color: rgb(29, 107, 176);
   color: white;
   cursor: pointer;
   font-weight: bold;
@@ -92,7 +90,9 @@ button {
 }
 
 .backCard {
-  background: red;
+  background-image: url("https://cf.geekdo-images.com/V9pkzNgoXitxhCjLhOKkPA__itemrep/img/4M61kAEyEc9VW9MvKQTCtpw3PZA=/fit-in/246x300/filters:strip_icc()/pic1807805.jpg");
+  background-size: cover;
+
   color: white;
   transform: rotateY(180deg);
 }
