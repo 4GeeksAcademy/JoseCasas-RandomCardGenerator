@@ -1,4 +1,5 @@
 /* eslint-disable */
+// I couldn't find a way to make this more like "pokemon"; i hope you enjoy it as much as me coding it //
 import "bootstrap";
 import "./style.css";
 import "./assets/img/rigo-baby.jpg";
@@ -25,7 +26,6 @@ window.onload = () => {
   const cardInner = document.querySelector(".cardInner");
   const getCardButton = document.querySelector("#getCardButton");
 
-  // Función para generar una carta nueva
   function getRandomCard() {
     const randomSuits = Math.floor(Math.random() * suits.length);
     const randomNumbers = Math.floor(Math.random() * numbers.length);
@@ -34,6 +34,8 @@ window.onload = () => {
     document.querySelector(".bottom-suit").innerHTML = suits[randomSuits];
     document.querySelector(".number").innerHTML = numbers[randomNumbers];
 
+    // This was to set "Hearts" and "Diamonds" red////////↓↓↓↓↓↓↓
+
     const isRed = suits[randomSuits] === "🔥" || suits[randomSuits] === "🐦‍🔥";
     document
       .querySelectorAll(".top-suit, .bottom-suit, .number")
@@ -41,22 +43,13 @@ window.onload = () => {
         element.style.color = isRed ? "#dc143c" : "";
       });
   }
+  // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑/////
 
-  // Evento de clic para generar una nueva carta
-  if (getCardButton) {
-    getCardButton.addEventListener("click", () => {
-      getRandomCard();
-    });
-  } else {
-    console.error("No se encontró el botón con el id 'getCardButton'");
-  }
+  getCardButton?.addEventListener("click", () => {
+    getRandomCard();
+  });
 
-  // Evento de clic para voltear la carta
-  if (cardInner) {
-    cardInner.addEventListener("click", () => {
-      cardInner.classList.toggle("flip");
-    });
-  } else {
-    console.error("No se encontró el elemento con la clase 'cardInner'");
-  }
+  cardInner?.addEventListener("click", () => {
+    cardInner.classList.toggle("flip");
+  });
 };
